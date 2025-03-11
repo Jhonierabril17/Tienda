@@ -1,6 +1,5 @@
 package org.example;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -63,8 +62,12 @@ public class Main {
                         if (p.getCodigoP() == codigoReponer) {
                             System.out.print("Ingrese la cantidad a reponer: ");
                             int cantidadReponer = sc.nextInt();
-                            p.Reponer(cantidadReponer);
-                            encontrado = true;
+                            if (cantidadReponer > 0) {
+                                p.Reponer(cantidadReponer);
+                                encontrado = true;
+                            }else{
+                                System.out.println("Valor ingresado debe ser mayor a 0");
+                            }
                             break;
                         }
                     }
@@ -83,7 +86,7 @@ public class Main {
                         }
                     }
                     if(!encontrado){
-                        System.out.println("Procuto no encontrado");
+                        System.out.println("Producto no encontrado");
                     }
                     break;
                 case 5:
